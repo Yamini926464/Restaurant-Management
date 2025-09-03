@@ -67,7 +67,7 @@ def show_orders():
 def day_wise_profit():
     connect.execute("""
         SELECT 
-            DATE(o.order_date) as day,
+            DATE(o.order_datetime) as day,
             SUM(o.quantity * (m.item_price - m.item_price_in)) as total_profit
         FROM Orders o
         JOIN Menu m ON o.item_name = m.item_name
